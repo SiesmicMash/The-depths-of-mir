@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://g3xsrnkyvysc"]
+
+[ext_resource type="PackedScene" uid="uid://cw71oy6uh8p5b" path="res://scenes/player.tscn" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://crfbuj3njnxsq" path="res://scenes/rock.tscn" id="2_w8frs"]
+
+[node name="Level" type="Node2D" unique_id=54460595]
+
+[node name="rock" parent="." unique_id=530539633 instance=ExtResource("2_w8frs")]
+position = Vector2(190, 84)
+
+[node name="Player" parent="." unique_id=497146431 instance=ExtResource("1_w7c3h")]
+position = Vector2(152, 81)
