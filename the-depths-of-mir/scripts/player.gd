@@ -1,17 +1,20 @@
 extends CharacterBody2D
+class_name Player
 
 
 const SPEED = 100
 
 var last_direction: Vector2 = Vector2.RIGHT
 var is_mining: bool = false
-var hitbox_offset: Vector2 = Vector2.RIGHT
+var hitbox_offset: Vector2
 var detected_rocks: Array = []
 var pickaxe_strength: int = 1
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $hitbox
 @onready var hitbox_collision_shape_2d: CollisionShape2D = $hitbox/CollisionShape2D
+@onready var mining_timer: Timer = $MiningTimer
+@onready var pickaxe_sound: AudioStreamPlayer2D = $pickaxe_sound
 
 
 func _ready() -> void:
@@ -20,7 +23,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	#handle mining input
-	if Input.is_action_just_pressed("use_pickaxe"):
+	if Input.is_action_pressed("use_pickaxe") and mining_timer.is_stopped():
 		use_pickaxe()
 	# skip movement if mining
 	if is_mining:
@@ -46,6 +49,7 @@ func process_movement() -> void:
 func process_animation()->void:
 	#disable hitbox until pickaxe is swung
 	hitbox.monitoring = false
+	
 	if velocity != Vector2.ZERO:
 		play_animation("run", last_direction)
 	else:
@@ -89,6 +93,7 @@ func use_pickaxe() -> void:
 	detected_rocks.clear()
 	is_mining = true
 	hitbox.monitoring = true
+	mining_timer.start()# start cooldown timer
 	play_animation("swing_pickaxe", last_direction)
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -97,6 +102,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		if detected_rocks.size() > 0:
 			var rock_to_hit = get_most_overlapping_rock()
 			rock_to_hit.take_damage(pickaxe_strength)
+			pickaxe_sound.play()
 			
 func get_most_overlapping_rock() -> Rock:
 	var best_rock = detected_rocks[0]
@@ -111,6 +117,13 @@ func get_most_overlapping_rock() -> Rock:
 	return best_rock
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body is Rock:
+	if body is Rock: 
 		detected_rocks.append(body)
 #endregion 
+
+#region inventory
+
+func add_ore(data: OreData) -> bool:
+	print(data)
+	return true
+#endregion

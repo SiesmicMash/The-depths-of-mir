@@ -2,18 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://cbw2b6630a7o3" path="res://asset/images/ores/stone.png" id="1_1di36"]
 [ext_resource type="Script" uid="uid://cveesep831axp" path="res://scripts/rock.gd" id="1_ik6fu"]
-[ext_resource type="Resource" uid="uid://b1irscypiue7l" path="res://data/rocks/iron.tres" id="2_872ht"]
+[ext_resource type="Resource" uid="uid://dm2kolr55poar" path="res://data/rocks/stone.tres" id="2_ik6fu"]
+[ext_resource type="AudioStream" uid="uid://bg0a2b1y0ns33" path="res://asset/sounds/631485__newlocknew__rockbrk_stone-hitshattering-into-fragments_em_7lrs.wav" id="4_872ht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mek2u"]
 atlas = ExtResource("1_1di36")
 region = Rect2(16.060158, 47.95802, 15.886917, 15.728485)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
-radius = 7.0
+radius = 8.0
 
-[node name="rock" type="StaticBody2D" unique_id=530539633]
+[node name="Rock" type="StaticBody2D" unique_id=530539633]
 script = ExtResource("1_ik6fu")
-data = ExtResource("2_872ht")
+data = ExtResource("2_ik6fu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=862971556]
 texture = SubResource("AtlasTexture_mek2u")
@@ -21,3 +22,7 @@ texture = SubResource("AtlasTexture_mek2u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415627723]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ik6fu")
+
+[node name="RockBreakingSound" type="AudioStreamPlayer2D" parent="." unique_id=140226682]
+stream = ExtResource("4_872ht")
+volume_db = -5.0

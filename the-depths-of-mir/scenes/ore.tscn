@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://o05xrq1r6jc6"]
+
+[ext_resource type="Texture2D" uid="uid://cbw2b6630a7o3" path="res://asset/images/ores/stone.png" id="1_84iim"]
+[ext_resource type="Script" uid="uid://cogasoa4kcujy" path="res://scripts/ore.gd" id="1_f6cf6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6cf6"]
+atlas = ExtResource("1_84iim")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1maq"]
+radius = 6.0
+
+[node name="Ore" type="Area2D" unique_id=2088999961]
+script = ExtResource("1_f6cf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1605942219]
+texture = SubResource("AtlasTexture_f6cf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=682808088]
+shape = SubResource("CircleShape2D_e1maq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

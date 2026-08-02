@@ -5,8 +5,18 @@
 
 [node name="Level" type="Node2D" unique_id=54460595]
 
-[node name="rock" parent="." unique_id=530539633 instance=ExtResource("2_w8frs")]
+[node name="RockContainer" type="Node2D" parent="." unique_id=181593126]
+
+[node name="rock" parent="RockContainer" unique_id=530539633 instance=ExtResource("2_w8frs")]
 position = Vector2(190, 84)
+
+[node name="rock3" parent="RockContainer" unique_id=1288217550 instance=ExtResource("2_w8frs")]
+position = Vector2(144, 116)
+
+[node name="rock2" parent="RockContainer" unique_id=2018806949 instance=ExtResource("2_w8frs")]
+position = Vector2(201, 50)
+
+[node name="OreContainer" type="Node2D" parent="." unique_id=1398439775]
 
 [node name="Player" parent="." unique_id=497146431 instance=ExtResource("1_w7c3h")]
 position = Vector2(152, 81)
