@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RockData" format=3 uid="uid://r7f7swna1gqb"]
+
+[ext_resource type="Resource" uid="uid://dgvtvqnmll7xv" path="res://data/ores/coal_ore.tres" id="1_4cwnb"]
+[ext_resource type="Script" uid="uid://cqqb8fjy57vwe" path="res://scripts/rock_data.gd" id="2_br0wv"]
+[ext_resource type="Texture2D" uid="uid://wxr6yywwibij" path="res://asset/images/ores/coal.png" id="3_br0wv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ctv"]
+atlas = ExtResource("3_br0wv")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_br0wv")
+texture = SubResource("AtlasTexture_x5ctv")
+max_health = 3
+rarity = 40
+min_depth = 2
+ore_resource = ExtResource("1_4cwnb")
+metadata/_custom_type_script = "uid://cqqb8fjy57vwe"

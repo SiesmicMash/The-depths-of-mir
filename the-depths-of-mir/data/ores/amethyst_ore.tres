@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="OreData" format=3 uid="uid://bd1seey4xtjt3"]
+
+[ext_resource type="Script" uid="uid://bm3rjudf3wbx7" path="res://scripts/ore_data.gd" id="1_bpq16"]
+[ext_resource type="Texture2D" uid="uid://birnciluo2q5n" path="res://asset/images/gems/amethyst.png" id="2_2oumw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtff"]
+atlas = ExtResource("2_2oumw")
+region = Rect2(34, 18, 12, 12)
+
+[resource]
+script = ExtResource("1_bpq16")
+name = "stone_ore"
+texture = SubResource("AtlasTexture_ydtff")
+value = 50
+metadata/_custom_type_script = "uid://bm3rjudf3wbx7"

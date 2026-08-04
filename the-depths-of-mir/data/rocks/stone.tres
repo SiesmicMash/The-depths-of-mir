@@ -11,7 +11,7 @@ region = Rect2(16.56736, 48.87057, 15.0130005, 14.12114)
 [resource]
 script = ExtResource("1_2bddd")
 texture = SubResource("AtlasTexture_x5ctv")
-max_health = 3
+max_health = 2
 rarity = 50
 min_depth = 1
 ore_resource = ExtResource("1_x5ctv")

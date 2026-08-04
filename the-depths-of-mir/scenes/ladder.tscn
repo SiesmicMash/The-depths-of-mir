@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bgwm2e8tyiofo"]
+
+[ext_resource type="Script" uid="uid://b5kladeumcx3n" path="res://scripts/ladder.gd" id="1_xb1tl"]
+[ext_resource type="Texture2D" uid="uid://ck8eau8715pcn" path="res://asset/images/decor/ladder.png" id="1_xxwne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb1tl"]
+atlas = ExtResource("1_xxwne")
+region = Rect2(56, 8, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku54x"]
+
+[node name="Ladder" type="Area2D" unique_id=1674688221]
+script = ExtResource("1_xb1tl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=479096197]
+texture = SubResource("AtlasTexture_xb1tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=970909249]
+shape = SubResource("RectangleShape2D_ku54x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

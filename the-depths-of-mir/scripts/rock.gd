@@ -5,6 +5,8 @@ const ORE_SCENE := preload("res://scenes/ore.tscn")
 const FLASH_COLOR:= Color(2.454, 2.454, 2.454, 1.0)
 var health: int
 
+signal broken
+
 @export var data: RockData
 @onready var rock_breaking_sound: AudioStreamPlayer2D = $RockBreakingSound
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -37,6 +39,8 @@ func _destroy() -> void:
 	queue_free()
 
 func _drop_ore() -> void:
+	broken.emit(position)
+	
 	var ore = ORE_SCENE.instantiate()
 	ore.position = position
 	ore.ore_data = data.ore_resource

@@ -1,20 +1,28 @@
 [gd_scene format=3 uid="uid://g3xsrnkyvysc"]
 
+[ext_resource type="Script" uid="uid://owrl707shy0c" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://cw71oy6uh8p5b" path="res://scenes/player.tscn" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dh13a1wcxes50" path="res://scenes/levels/map_1.tscn" id="1_w8frs"]
+[ext_resource type="Script" uid="uid://cqqb8fjy57vwe" path="res://scripts/rock_data.gd" id="2_8iemx"]
 [ext_resource type="PackedScene" uid="uid://crfbuj3njnxsq" path="res://scenes/rock.tscn" id="2_w8frs"]
+[ext_resource type="Resource" uid="uid://dm2kolr55poar" path="res://data/rocks/stone.tres" id="3_64w2a"]
+[ext_resource type="Resource" uid="uid://r7f7swna1gqb" path="res://data/rocks/coal.tres" id="4_fpun6"]
+[ext_resource type="Resource" uid="uid://b1irscypiue7l" path="res://data/rocks/iron.tres" id="5_wc255"]
+[ext_resource type="Resource" uid="uid://b0n0h0806fel2" path="res://data/rocks/amethyst.tres" id="6_arp2o"]
+[ext_resource type="Resource" uid="uid://ctquq2lkq2mn0" path="res://data/rocks/silver.tres" id="7_ux5qa"]
+[ext_resource type="Resource" uid="uid://c4lg17fw36r14" path="res://data/rocks/gold.tres" id="8_82cfe"]
+[ext_resource type="Resource" uid="uid://dbcfyi8e73rhb" path="res://data/rocks/diamond.tres" id="9_gunhw"]
 
 [node name="Level" type="Node2D" unique_id=54460595]
+script = ExtResource("1_mx8sn")
+rock_types = Array[ExtResource("2_8iemx")]([ExtResource("3_64w2a"), ExtResource("4_fpun6"), ExtResource("5_wc255"), ExtResource("6_arp2o"), ExtResource("7_ux5qa"), ExtResource("8_82cfe"), ExtResource("9_gunhw")])
+
+[node name="Map" parent="." unique_id=1821310361 instance=ExtResource("1_w8frs")]
 
 [node name="RockContainer" type="Node2D" parent="." unique_id=181593126]
 
 [node name="rock" parent="RockContainer" unique_id=530539633 instance=ExtResource("2_w8frs")]
-position = Vector2(190, 84)
-
-[node name="rock3" parent="RockContainer" unique_id=1288217550 instance=ExtResource("2_w8frs")]
-position = Vector2(144, 116)
-
-[node name="rock2" parent="RockContainer" unique_id=2018806949 instance=ExtResource("2_w8frs")]
-position = Vector2(201, 50)
+position = Vector2(-37, 81)
 
 [node name="OreContainer" type="Node2D" parent="." unique_id=1398439775]
 

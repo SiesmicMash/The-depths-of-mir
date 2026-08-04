@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RockData" format=3 uid="uid://c4lg17fw36r14"]
+
+[ext_resource type="Resource" uid="uid://c28nk7jc458gc" path="res://data/ores/gold_ore.tres" id="1_0nfgd"]
+[ext_resource type="Script" uid="uid://cqqb8fjy57vwe" path="res://scripts/rock_data.gd" id="1_4p6rw"]
+[ext_resource type="Texture2D" uid="uid://dmcx18diaotw2" path="res://asset/images/ores/gold.png" id="3_l0bcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ctv"]
+atlas = ExtResource("3_l0bcs")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_4p6rw")
+texture = SubResource("AtlasTexture_x5ctv")
+max_health = 6
+rarity = 5
+min_depth = 6
+ore_resource = ExtResource("1_0nfgd")
+metadata/_custom_type_script = "uid://cqqb8fjy57vwe"
